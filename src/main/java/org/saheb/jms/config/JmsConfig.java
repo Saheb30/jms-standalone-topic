@@ -46,7 +46,7 @@ public class JmsConfig {
 	public Topic getTopic() {
 		return new ActiveMQTopic("standalone.topic");
 	}
-	@Bean
+	@Bean("employeeJmsTemplate")
 	public JmsTemplate jmsTemplate(){
 	    JmsTemplate template = new JmsTemplate();
 	    template.setConnectionFactory(connectionFactory());
@@ -54,7 +54,7 @@ public class JmsConfig {
 	    template.setPubSubDomain(true);
 	    return template;
 	}
-	@Bean
+	@Bean("employeeContainerFactory")
 	public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() {
 	    DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
 	    factory.setConnectionFactory(connectionFactory());

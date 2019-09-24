@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class JmsSubscriber2 {
-	@JmsListener(destination = "standalone.topic")
+	@JmsListener(destination = "standalone.topic", containerFactory = "employeeContainerFactory")
 	public void receive(Employee employee) {
-		System.out.println("Recieved Message::: " + employee.getEmpId()+"->"+employee.getEmpName());
+		System.out.println("Recieved Message::: " + employee.getEmpId() + "->" + employee.getEmpName());
 	}
 }

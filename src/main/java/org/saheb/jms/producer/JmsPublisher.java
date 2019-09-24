@@ -4,12 +4,14 @@ import javax.jms.Topic;
 
 import org.saheb.jms.beans.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
 
 @Component
 public class JmsPublisher {
 	@Autowired
+	@Qualifier("employeeJmsTemplate")
 	JmsTemplate jmsTemplate;
 
 	@Autowired
