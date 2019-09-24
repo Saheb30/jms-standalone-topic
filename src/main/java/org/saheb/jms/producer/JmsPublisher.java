@@ -2,6 +2,7 @@ package org.saheb.jms.producer;
 
 import javax.jms.Topic;
 
+import org.saheb.jms.beans.Employee;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jms.core.JmsTemplate;
 import org.springframework.stereotype.Component;
@@ -14,7 +15,7 @@ public class JmsPublisher {
 	@Autowired
 	Topic topic;
 
-	public void send(String input) {
-		jmsTemplate.convertAndSend(topic, input);
+	public void send(Employee employee) {
+		jmsTemplate.convertAndSend(topic, employee);
 	}
 }

@@ -11,5 +11,4 @@ public class StandaloneTopicApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(StandaloneTopicApplication.class, args);
 	}
-
 }

@@ -58,6 +58,8 @@ public class JmsConfig {
 	public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() {
 	    DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
 	    factory.setConnectionFactory(connectionFactory());
+	    //This is required for parsing at subscriber end else it will be an exception at subscriber end
+	    factory.setMessageConverter(jacksonJmsMessageConverter()); 
 	    factory.setConcurrency("1-2");//Specify concurrency limits via a "lower-upper" String, e.g. "5-10"
 	    factory.setPubSubDomain(true);
 	    return factory;
